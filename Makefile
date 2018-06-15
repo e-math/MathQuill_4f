@@ -47,6 +47,7 @@ SOURCES_FULL = \
   $(BASE_SOURCES) \
   $(SRC_DIR)/commands/math.js \
   $(SRC_DIR)/commands/text.js \
+  $(SRC_DIR)/commands/math/basicSymbols.js \
   $(SRC_DIR)/commands/math/*.js
 # FIXME text.js currently depends on math.js (#435), restore these when fixed:
 # $(SRC_DIR)/commands/*.js \
