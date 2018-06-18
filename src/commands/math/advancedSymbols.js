@@ -101,6 +101,40 @@ LatexCmds.complexplane = LatexCmds.Complexplane = LatexCmds.ComplexPlane =
 LatexCmds.H = LatexCmds.Hamiltonian = LatexCmds.quaternions = LatexCmds.Quaternions =
   bind(VanillaSymbol,'\\mathbb{H}','&#8461;');
 
+// pekasa added true and false
+LatexCmds.dollar = bind(VanillaSymbol, '\\dollar','$');
+// pekasa added true and false
+LatexCmds.T = LatexCmds.true = bind(VanillaSymbol, '\\T','T');
+LatexCmds.F = LatexCmds.false = bind(VanillaSymbol, '\\F','F');
+
+// pesasa added some working alternatives for sets of numbers as long as \\mathbb{} is broken.
+LatexCmds.NN = bind(VanillaSymbol, '\\NN','&#8469;');
+LatexCmds.PP = bind(VanillaSymbol, '\\PP','&#8473;');
+LatexCmds.ZZ = bind(VanillaSymbol, '\\ZZ','&#8484;');
+LatexCmds.QQ = bind(VanillaSymbol, '\\QQ','&#8474;');
+LatexCmds.RR = bind(VanillaSymbol, '\\RR','&#8477;');
+LatexCmds.CC = bind(VanillaSymbol, '\\CC','&#8450;');
+LatexCmds.HH = bind(VanillaSymbol, '\\HH','&#8461;');
+LatexCmds.AA = bind(VanillaSymbol, '\\AA','&#120120;');
+LatexCmds.BB = bind(VanillaSymbol, '\\BB','&#120121;');
+LatexCmds.DD = bind(VanillaSymbol, '\\DD','&#120123;');
+LatexCmds.EE = bind(VanillaSymbol, '\\EE','&#120124;');
+LatexCmds.FF = bind(VanillaSymbol, '\\FF','&#120125;');
+LatexCmds.GG = bind(VanillaSymbol, '\\GG','&#120126;');
+LatexCmds.II = bind(VanillaSymbol, '\\II','&#120128;');
+LatexCmds.JJ = bind(VanillaSymbol, '\\JJ','&#120129;');
+LatexCmds.KK = bind(VanillaSymbol, '\\KK','&#120130;');
+LatexCmds.LL = bind(VanillaSymbol, '\\LL','&#120131;');
+LatexCmds.MM = bind(VanillaSymbol, '\\MM','&#120132;');
+LatexCmds.OO = bind(VanillaSymbol, '\\OO','&#120134;');
+LatexCmds.SS = bind(VanillaSymbol, '\\SS','&#120138;');
+LatexCmds.TT = bind(VanillaSymbol, '\\TT','&#120139;');
+LatexCmds.UU = bind(VanillaSymbol, '\\UU','&#120140;');
+LatexCmds.VV = bind(VanillaSymbol, '\\VV','&#120141;');
+LatexCmds.WW = bind(VanillaSymbol, '\\WW','&#120142;');
+LatexCmds.XX = bind(VanillaSymbol, '\\XX','&#120143;');
+LatexCmds.YY = bind(VanillaSymbol, '\\YY','&#120144;');
+
 //spacing
 LatexCmds.quad = LatexCmds.emsp = bind(VanillaSymbol,'\\quad ','    ');
 LatexCmds.qquad = bind(VanillaSymbol,'\\qquad ','        ');
@@ -157,6 +191,8 @@ LatexCmds.vdash = bind(VanillaSymbol, '\\vdash ', '&#8870;');
 LatexCmds.dashv = bind(VanillaSymbol, '\\dashv ', '&#8867;');
 LatexCmds.nless = bind(VanillaSymbol, '\\nless ', '&#8814;');
 LatexCmds.ngtr = bind(VanillaSymbol, '\\ngtr ', '&#8815;');
+// Added by pesasa
+LatexCmds.Vdash = bind(VanillaSymbol, '\\Vdash ', '&#8873;');
 
 //arrows
 LatexCmds.longleftarrow = bind(VanillaSymbol, '\\longleftarrow ', '&#8592;');
@@ -297,27 +333,41 @@ LatexCmds.uArr = LatexCmds.Uparrow = bind(VanillaSymbol,'\\Uparrow ','&uArr;');
 
 LatexCmds.to = bind(BinaryOperator,'\\to ','&rarr;');
 
-LatexCmds.rarr = LatexCmds.rightarrow = bind(VanillaSymbol,'\\rightarrow ','&rarr;');
+//LatexCmds.rarr = LatexCmds.rightarrow = bind(VanillaSymbol,'\\rightarrow ','&rarr;');
+// By pesasa: change rightarrow to binary operator
+LatexCmds.rarr = LatexCmds.rightarrow = bind(BinaryOperator,'\\rightarrow ','&rarr;');
 
 LatexCmds.implies = bind(BinaryOperator,'\\Rightarrow ','&rArr;');
 
-LatexCmds.rArr = LatexCmds.Rightarrow = bind(VanillaSymbol,'\\Rightarrow ','&rArr;');
+//LatexCmds.rArr = LatexCmds.Rightarrow = bind(VanillaSymbol,'\\Rightarrow ','&rArr;');
+// By pesasa: change Rightarrow to binary operator
+LatexCmds.rArr = LatexCmds.Rightarrow = bind(BinaryOperator,'\\Rightarrow ','&rArr;');
 
 LatexCmds.gets = bind(BinaryOperator,'\\gets ','&larr;');
 
-LatexCmds.larr = LatexCmds.leftarrow = bind(VanillaSymbol,'\\leftarrow ','&larr;');
+//LatexCmds.larr = LatexCmds.leftarrow = bind(VanillaSymbol,'\\leftarrow ','&larr;');
+// By pesasa: change leftarrow to binary operator
+LatexCmds.larr = LatexCmds.leftarrow = bind(BinaryOperator,'\\leftarrow ','&larr;');
 
 LatexCmds.impliedby = bind(BinaryOperator,'\\Leftarrow ','&lArr;');
 
-LatexCmds.lArr = LatexCmds.Leftarrow = bind(VanillaSymbol,'\\Leftarrow ','&lArr;');
+//LatexCmds.lArr = LatexCmds.Leftarrow = bind(VanillaSymbol,'\\Leftarrow ','&lArr;');
+// By pesasa: change Leftarrow to binary operator
+LatexCmds.lArr = LatexCmds.Leftarrow = bind(BinaryOperator,'\\Leftarrow ','&lArr;');
 
+//LatexCmds.harr = LatexCmds.lrarr = LatexCmds.leftrightarrow =
+//  bind(VanillaSymbol,'\\leftrightarrow ','&harr;');
+// By pesasa: change leftrightarrow to binary operator
 LatexCmds.harr = LatexCmds.lrarr = LatexCmds.leftrightarrow =
-  bind(VanillaSymbol,'\\leftrightarrow ','&harr;');
+  bind(BinaryOperator,'\\leftrightarrow ','&harr;');
 
 LatexCmds.iff = bind(BinaryOperator,'\\Leftrightarrow ','&hArr;');
 
+//LatexCmds.hArr = LatexCmds.lrArr = LatexCmds.Leftrightarrow =
+//  bind(VanillaSymbol,'\\Leftrightarrow ','&hArr;');
+// By Pesasa: change Leftrightarrow to binary operator
 LatexCmds.hArr = LatexCmds.lrArr = LatexCmds.Leftrightarrow =
-  bind(VanillaSymbol,'\\Leftrightarrow ','&hArr;');
+  bind(BinaryOperator,'\\Leftrightarrow ','&hArr;');
 
 LatexCmds.Re = LatexCmds.Real = LatexCmds.real = bind(VanillaSymbol,'\\Re ','&real;');
 

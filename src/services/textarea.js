@@ -115,11 +115,11 @@ Controller.open(function(_) {
       var ismathmode = this.root.jQ.find('.mq-cursor').closest('.mq-text-mode, .mq-math-mode').is('.mq-math-mode');
       var textarr = text.split('$');
       var splitchar = (textarr.length > 1 ? '$' : '');
-      for (let i = 0, len = textarr.length; i < len; i++) {
+      for (var i = 0, len = textarr.length; i < len; i++) {
         if (ismathmode) {
             this.writeLatex(textarr[i]);
         } else {
-          for (let j = 0, jlen = textarr[i].length; j < jlen; j++) {
+          for (var j = 0, jlen = textarr[i].length; j < jlen; j++) {
             this.typedText(textarr[i][j]);
           };
         };

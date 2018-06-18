@@ -144,6 +144,18 @@ LatexCmds.mathbb = P(MathCommand, function(_, super_) {
   };
 });
 
+// Added by pesasa/pekasa for e-math
+LatexCmds.unit = bind(Style, '\\unit', 'span', 'style="margin-left: 0.2em;" class="mq-non-leaf mq-roman mq-font mq-unit"');
+LatexCmds.solution = bind(Style, '\\solution', 'span', 'class="mq-non-leaf mq-solution"');
+LatexCmds.extramot = bind(Style, '\\extramot', 'span', 'class="mq-non-leaf mq-extramotivation"');
+
+// Colors for E-math by pesasa
+LatexCmds.red = bind(Style, '\\red', 'span', 'class="mq-non-leaf color_red"');
+LatexCmds.blue = bind(Style, '\\blue', 'span', 'class="mq-non-leaf color_blue"');
+LatexCmds.green = bind(Style, '\\green', 'span', 'class="mq-non-leaf color_green"');
+LatexCmds.violet = bind(Style, '\\violet', 'span', 'class="mq-non-leaf color_violet"');
+LatexCmds.orange = bind(Style, '\\orange', 'span', 'class="mq-non-leaf color_orange"');
+
 //text-decoration
 LatexCmds.underline = bind(Style, '\\underline', 'span', 'class="mq-non-leaf mq-underline"');
 LatexCmds.overline = LatexCmds.bar = bind(Style, '\\overline', 'span', 'class="mq-non-leaf mq-overline"');
@@ -928,6 +940,48 @@ LatexCmds.binomial = P(P(MathCommand, DelimsMixin), function(_, super_) {
 var Choose =
 LatexCmds.choose = P(Binomial, function(_) {
   _.createLeftOf = LiveFraction.prototype.createLeftOf;
+});
+
+// Added by pekasa and pesasa
+var Func =
+LatexCmds.func = P(MathCommand, function(_, super_) {
+  _.ctrlSeq = '\\func';
+  _.htmlTemplate =
+      '<span class="mq-non-leaf">'
+    +   '<span class="mq-funcname">&0</span>'
+    +   '<span class="mq-non-leaf">'
+    +     '<span class="mq-scaled mq-paren">(</span>'
+    +     '<span class="mq-non-leaf mq-funcparam"><span>&1</span></span>'
+    +     '<span class="mq-scaled mq-paren">)</span>'
+    +   '</span>'
+    + '</span>'
+  ;
+  _.textTemplate = ['', '(', ')'];
+  _.reflow = function() {
+    //var block = this.ends[R].jQ;
+    //scale(block.prev(), 1, block.innerHeight()/+block.css('fontSize').slice(0,-2) - .1);
+    var blockjQ = this.jQ.find('> .mq-non-leaf > .mq-funcparam');
+    var height = blockjQ.outerHeight()/+blockjQ.css('fontSize').slice(0,-2);
+    var parens = this.jQ.find('> .mq-non-leaf > .mq-paren');
+    if (parens.length) {
+        scale(parens, min(1 + .2*(height -1), 1.2), 1.05*height);
+    };
+  };
+});
+
+var Ifunc =
+LatexCmds.ifunc = P(MathCommand, function(_, super_) {
+  _.ctrlSeq = '\\ifunc';
+  _.htmlTemplate =
+      '<span class="">'
+    +   '<span class="mq-ifuncname">&0</span>'
+    +   '<span class="mq-supsub mq-non-leaf">'
+    +     '<span class="mq-sub">&1</span>'
+    +     '<span style="display:inline-block;width:0">​</span>'
+    +   '</span>'
+    + '</span>'
+  ;
+  _.textTemplate = ['', '_(', ')'];
 });
 
 LatexCmds.editable = // backcompat with before cfd3620 on #233
