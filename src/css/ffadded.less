@@ -2,6 +2,19 @@
  * Styles added for Four Ferries by Petri Salmela
  */
 
+.mq-editable-field.mq-math-mode .mq-hasCursor:not(.mq-root-block),
+.mq-editable-field.mq-text-mode .mq-math-mode.mq-hasCursor:not(.mq-root-block),
+.mq-editable-field.mq-text-mode .mq-math-mode .mq-hasCursor:not(.mq-root-block) {
+    box-shadow: inset 0 0 0 1px #66A5E3;
+    box-shadow:  0 0 2px 1px #68b4df;
+    background-color: rgba(250,250,255,0.5);
+}
+
+.mq-editable-field.mq-math-mode .mq-text-mode.mq-hasCursor:not(.mq-root-block) {
+    box-shadow: inset 0 0 1px 1px #E35F5F;
+    background-color: rgba(255,240,240,0.5);
+}
+
 /****** colors ***********/
 .color_red {color: #a00;}
 .color_blue {color: #00a;}
@@ -9,3 +22,9 @@
 .color_violet {color: #a0a;}
 .color_black {color: #000;}
 .color_orange {color: #ff8000;}
+
+
+/**** Revert things from normalize.css ****/
+.mq-math-mode sup {
+    top: auto;
+}
