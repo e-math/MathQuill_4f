@@ -61,18 +61,19 @@ var TextBlock = P(Node, function(_, super_) {
       return text + child.text;
     });
   };
+  // Added by pesasa to fix \textit, \textbf, etc.
+  _.htmlTemplate = '<span class="mq-text-mode">&0</span>';
   _.text = function() { return '"' + this.textContents() + '"'; };
   _.latex = function() {
     var contents = this.textContents();
     if (contents.length === 0) return '';
-    return '\\text{' + contents.replace(/\\/g, '\\backslash ').replace(/[{}]/g, '\\$&') + '}';
+    return this.ctrlSeq + '{' + contents.replace(/\\/g, '\\backslash ').replace(/[{}]/g, '\\$&') + '}';
   };
   _.html = function() {
-    return (
-        '<span class="mq-text-mode" mathquill-command-id='+this.id+'>'
-      +   this.textContents()
-      + '</span>'
-    );
+    // Added by pesasa to fix \textit, \textbf, etc.
+    var cmd = this;
+    var cmdId = ' mathquill-command-id=' + cmd.id;
+    return cmd.htmlTemplate.replace(/>&(\d+)/g, ' mathquill-command-id='+this.id+'>' + this.textContents());
   };
 
   // editability methods: called by the cursor for editing, cursor movements,
@@ -324,6 +325,8 @@ LatexCmds.uppercase =
   makeTextBlock('\\uppercase', 'span', 'style="text-transform:uppercase" class="mq-text-mode"');
 LatexCmds.lowercase =
   makeTextBlock('\\lowercase', 'span', 'style="text-transform:lowercase" class="mq-text-mode"');
+// Added by pesasa
+LatexCmds.label = makeTextBlock('\\label', 'i', 'class="mq-labeltext mq-text-mode"');
 
 
 var RootMathCommand = P(MathCommand, function(_, super_) {
