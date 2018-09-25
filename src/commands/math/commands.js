@@ -1543,6 +1543,7 @@ var MatrixCell = P(MathBlock, function(_, super_) {
         }
       });
       e.preventDefault();
+      e.stopPropagation();
       if (nextRowFirstCell && nextRowIsEmpty) {
         ctrlr.cursor.insAtDirEnd(L, nextRowFirstCell);
         break;
