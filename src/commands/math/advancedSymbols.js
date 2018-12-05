@@ -101,6 +101,9 @@ LatexCmds.complexplane = LatexCmds.Complexplane = LatexCmds.ComplexPlane =
 LatexCmds.H = LatexCmds.Hamiltonian = LatexCmds.quaternions = LatexCmds.Quaternions =
   bind(VanillaSymbol,'\\mathbb{H}','&#8461;');
 
+// 4F: derivation operator
+LatexCmds.D = bind(VanillaSymbol, '\\D ','D');
+
 // pekasa added true and false
 LatexCmds.dollar = bind(VanillaSymbol, '\\dollar','$');
 // pekasa added true and false
