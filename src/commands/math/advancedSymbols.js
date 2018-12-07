@@ -104,6 +104,9 @@ LatexCmds.H = LatexCmds.Hamiltonian = LatexCmds.quaternions = LatexCmds.Quaterni
 // 4F: derivation operator
 LatexCmds.D = bind(VanillaSymbol, '\\D ','D');
 
+// 4F: integration variable
+LatexCmds.d = bind(VanillaSymbol, '\\d ','d');
+
 // pekasa added true and false
 LatexCmds.dollar = bind(VanillaSymbol, '\\dollar','$');
 // pekasa added true and false
