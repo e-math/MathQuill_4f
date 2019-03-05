@@ -1,19 +1,19 @@
 /*
  * Styles added for Four Ferries by Petri Salmela
  */
-
 /**** Show the structure of math by showing the box with cursor. ****/
 .mq-editable-field.mq-math-mode .mq-hasCursor:not(.mq-root-block),
 .mq-editable-field.mq-text-mode .mq-math-mode.mq-hasCursor:not(.mq-root-block),
 .mq-editable-field.mq-text-mode .mq-math-mode .mq-hasCursor:not(.mq-root-block) {
     box-shadow: inset 0 0 0 1px #66A5E3;
-    box-shadow:  0 0 2px 1px #68b4df;
-    background-color: rgba(250,250,255,0.5);
+    box-shadow: 0 0 2px 1px #68b4df;
+    background-color: rgba(250, 250, 255, 0.5);
+    background-color: #f2faff;
 }
 
 .mq-editable-field.mq-math-mode .mq-text-mode.mq-hasCursor:not(.mq-root-block) {
     box-shadow: inset 0 0 1px 1px #E35F5F;
-    background-color: rgba(255,240,240,0.5);
+    background-color: rgba(255, 240, 240, 0.5);
 }
 
 /**** Hide empty gray boxes in StaticMath ****/
@@ -30,20 +30,62 @@
 }
 
 /****** colors ***********/
-.color_red {color: #a00;}
-.color_blue {color: #00a;}
-.color_green {color: #0a0;}
-.color_violet {color: #a0a;}
-.color_black {color: #000;}
-.color_orange {color: #ff8000;}
+.color_red {
+    color: #a00;
+}
+.color_blue {
+    color: #00a;
+}
+.color_green {
+    color: #0a0;
+}
+.color_violet {
+    color: #a0a;
+}
+.color_black {
+    color: #000;
+}
+.color_orange {
+    color: #ff8000;
+}
+/******* Cursor ******/
+.mq-editable-field .mq-cursor {
+     width: 0;
+}
+.mq-editable-field.mq-text-mode .mq-cursor,
+.mq-editable-field .mq-text-mode .mq-cursor {
+     border-left: 1px solid #a00;
+     box-shadow: 0 0 0 0.5px #a00;
+}
+.mq-editable-field.mq-math-mode .mq-cursor,
+.mq-editable-field .mq-math-mode .mq-cursor {
+     border-left: 1px solid #00a;
+     box-shadow: 0 0 0 0.5px #00a;
+}
 
 /****** \unit styling ******/
 .mq-editable-field.mq-math-mode .mq-unit,
-.mq-editable-field.mq-math-mode .mq-unit.mq-hasCursor {
+.mq-editable-field.mq-math-mode .mq-unit.mq-hasCursor,
+.mq-editable-field.mq-text-mode .mq-math-mode .mq-unit,
+.mq-editable-field.mq-text-mode .mq-math-mode .mq-unit.mq-hasCursor {
     background-color: #ffd;
     box-shadow: inset 0 0 0 1px #ffd700;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 4px;
 }
-
+.mq-editable-field .mq-math-mode .mq-unit.mq-hasCursor .mq-cursor,
+.mq-editable-field.mq-math-mode .mq-unit.mq-hasCursor .mq-cursor {
+    border-left: 1px solid #aa6600;
+    box-shadow: 0 0 0 0.5px #aa6600;
+}
+.mq-math-mode:not(.mq-editable-field) .mq-binary-operator + .mq-unit {
+    margin-left: 0!important;
+}
+.mq-math-mode.mq-editable-field .mq-binary-operator + .mq-unit,
+.mq-text-mode.mq-editable-field .mq-math-mode .mq-binary-operator + .mq-unit {
+    margin-left: 0.2em!important;
+}
 /**** Revert things from normalize.css ****/
 .mq-math-mode sup {
     top: auto;
