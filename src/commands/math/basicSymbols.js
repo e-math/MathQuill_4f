@@ -198,6 +198,12 @@ var TwoWordOpNames = { limsup: 1, liminf: 1, projlim: 1, injlim: 1 };
   for (var i = 0; i < moreNonstandardOps.length; i += 1) {
     AutoOpNames[moreNonstandardOps[i]] = 1;
   }
+
+  // Even more of nonstandard added by pesasa (4ferries)
+  var stillMoreNonstandardOps = 'fib even odd mod div prime'.split(' ');
+  for (var i = 0; i < stillMoreNonstandardOps.length; i += 1) {
+    BuiltInOpNames[stillMoreNonstandardOps[i]] = AutoOpNames[stillMoreNonstandardOps[i]] = 1;
+  }
 }());
 optionProcessors.autoOperatorNames = function(cmds) {
   if (!/^[a-z]+(?: [a-z]+)*$/i.test(cmds)) {
@@ -257,8 +263,13 @@ LatexCmds.f = P(Letter, function(_, super_) {
 LatexCmds[' '] = LatexCmds.space = bind(VanillaSymbol, '\\ ', '&nbsp;');
 LatexCmds[','] = bind(VanillaSymbol, '{,}', ',');
 
-LatexCmds["'"] = LatexCmds.prime = bind(VanillaSymbol, "'", '&prime;');
+// LatexCmds["'"] = LatexCmds.prime = bind(VanillaSymbol, "'", '&prime;');
+// 4F: pesasa removed so that \prime can be used for boolean proposition ("is prime number").
+LatexCmds["'"] = bind(VanillaSymbol, "'", '&prime;');
 LatexCmds['″'] = LatexCmds.dprime = bind(VanillaSymbol, '″', '&Prime;');
+
+// 4F: pesasa added to get \min without autoOperatorNames.
+LatexCmds.min = bind(VanillaSymbol, '\\min', 'min');
 
 LatexCmds.backslash = bind(VanillaSymbol,'\\backslash ','\\');
 if (!CharCmds['\\']) CharCmds['\\'] = LatexCmds.backslash;
@@ -469,7 +480,7 @@ var PlusMinus = P(BinaryOperator, function(_) {
 
       return 'mq-binary-operator';
     };
-    
+
     if (dir === R) return; // ignore if sibling only changed on the right
     this.jQ[0].className = determineOpClassType(this);
     return this;
@@ -540,7 +551,9 @@ LatexCmds['='] = Equality;
 
 LatexCmds['×'] = LatexCmds.times = bind(BinaryOperator, '\\times ', '&times;', '[x]');
 
-LatexCmds['÷'] = LatexCmds.div = LatexCmds.divide = LatexCmds.divides =
-  bind(BinaryOperator,'\\div ','&divide;', '[/]');
+LatexCmds['÷'] = LatexCmds.divide = LatexCmds.divides = // LatexCmds.div =
+  bind(BinaryOperator,'\\divide ','&divide;', '[/]');
+  // bind(BinaryOperator,'\\div ','&divide;', '[/]');
+  // 4F: pesasa changed so that \div can be used for integer division operator "div".
 
 CharCmds['~'] = LatexCmds.sim = bind(BinaryOperator, '\\sim ', '~', '~');

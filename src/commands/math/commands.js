@@ -146,6 +146,7 @@ LatexCmds.mathbb = P(MathCommand, function(_, super_) {
 
 // Added by pesasa/pekasa for e-math
 LatexCmds.unit = bind(Style, '\\unit', 'span', 'style="margin-left: 0.2em;" class="mq-non-leaf mq-roman mq-font mq-unit"');
+LatexCmds.curr = bind(Style, '\\curr', 'span', 'style="margin-left: 0.2em;" class="mq-non-leaf mq-roman mq-font mq-curr"');
 LatexCmds.solution = bind(Style, '\\solution', 'span', 'class="mq-non-leaf mq-solution"');
 LatexCmds.extramot = bind(Style, '\\extramot', 'span', 'class="mq-non-leaf mq-extramotivation"');
 
