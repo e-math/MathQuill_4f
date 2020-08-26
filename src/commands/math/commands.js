@@ -149,6 +149,7 @@ LatexCmds.unit = bind(Style, '\\unit', 'span', 'style="margin-left: 0.2em;" clas
 LatexCmds.curr = bind(Style, '\\curr', 'span', 'style="margin-left: 0.2em;" class="mq-non-leaf mq-roman mq-font mq-curr"');
 LatexCmds.solution = bind(Style, '\\solution', 'span', 'class="mq-non-leaf mq-solution"');
 LatexCmds.extramot = bind(Style, '\\extramot', 'span', 'class="mq-non-leaf mq-extramotivation"');
+LatexCmds.var = bind(Style, '\\var', 'span', 'class="mq-non-leaf mq-roman mq-font mq-longvar"');
 
 // Colors for E-math by pesasa
 LatexCmds.red = bind(Style, '\\red', 'span', 'class="mq-non-leaf color_red"');
